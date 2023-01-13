@@ -6,7 +6,7 @@
   --secundario: #0097a7;
   --gris: #757575;
 }
-
+/*Globales*/
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -23,7 +23,53 @@ html {
 body {
   font-size: 16px; /*? 1rem = 10px*/
   font-family: "Krub", sans-serif;
+  background-image: linear-gradient(to top, #dfe9f3 0%, var(--blanco) 100%);
 }
+
+.contenedor {
+  max-width: 120rem; /* Seria igual a 1200px*/
+  margin: 0 auto; /*? Se le pone "auto" en ambos lados donde se quiera centrar el elemento*/
+  /*$ Si 2 valores se repiten. Es decir el Top es igual al Bottom, y L es igual al R, entonces se puede limitar a dejar solo 2 parametros
+                /*$ En vez de poner "0 auto 0 auto" se pone como está*/
+}
+
+.button {
+  background-color: var(--secundario);
+  color: var(--blanco);
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  width: 90%;
+  /*?Espreferibleponerprimerolosajustesqueseveranenunaresolucióngenerica,yenelmediaaquellosdelaresoluciónespecial*/
+  text-align: center;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .button {
+    width: auto;
+  }
+}
+
+.sombra {
+  box-shadow: 0px 5px 15px 0px rgba(133, 133, 133, 0.74);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+/* Tipografia */
 
 h1 {
   font-size: 3.8rem;
@@ -38,12 +84,7 @@ h3 {
   font-size: 2rem;
 }
 
-.contenedor {
-  max-width: 120rem; /* Seria igual a 1200px*/
-  margin: 0 auto; /*? Se le pone "auto" en ambos lados donde se quiera centrar el elemento*/
-  /*$ Si 2 valores se repiten. Es decir el Top es igual al Bottom, y L es igual al R, entonces se puede limitar a dejar solo 2 parametros
-                /*$ En vez de poner "0 auto 0 auto" se pone como está*/
-}
+/* Personalización */
 
 .nav-bg {
   background-color: var(--secundario);
@@ -83,6 +124,7 @@ h3 {
   height: 450px;
   position: relative; /*? Para que un elemento tenga una posicion absolutal. Su padre debera tener una position relativa 
   /*? En caso de que no se le ponga al padre, tomara las coordenadas de todo el documento como el padre*/
+  margin-bottom: 2rem;
 }
 
 .content-hero {
@@ -101,4 +143,10 @@ h3 {
 .content-hero h2,
 .content-hero p {
   color: var(--blanco);
+}
+.servicios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /** Sintaxis Larga*/
+  grid: none / 1fr 1fr 1fr; /** Sintaxis corta*/
+  /**? El # de fr define el tamaño de la fraccion */
 }
