@@ -46,10 +46,7 @@ body {
   width: 90%;
   /*?Espreferibleponerprimerolosajustesqueseveranenunaresolucióngenerica,yenelmediaaquellosdelaresoluciónespecial*/
   text-align: center;
-  -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
+  border: none;
 }
 
 @media (min-width: 480px) {
@@ -58,15 +55,15 @@ body {
   }
 }
 
+.button:hover {
+  cursor: pointer;
+}
+
 .sombra {
   box-shadow: 0px 5px 15px 0px rgba(133, 133, 133, 0.74);
   background-color: var(--blanco);
   padding: 2rem;
   border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
 }
 
 /* Tipografia */
@@ -83,17 +80,41 @@ h3 {
 .titulo span {
   font-size: 2rem;
 }
-
-/* Personalización */
+/* Utilidades */
+/*$ San una propiedad y un valor por clase*/
+.w-100 {
+  width: 100%;
+}
 
 .nav-bg {
   background-color: var(--secundario);
 }
 
+@media (min-width: 760px) {
+  .w-100 {
+    width: auto;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.aling-derecha {
+  justify-content: flex-end;
+}
+
+/* Navegación principal */
+
 .main-nav {
   display: flex; /*Habilita un mejor control de como se muestran los elementos*/
   flex-direction: column;
   align-items: center;
+}
+
+.subtitulo {
+  text-align: center;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {
@@ -134,7 +155,7 @@ h3 {
   height: 100%;
   width: 100%;
   /*$ Alinear verticalmente*/
-  display: flex;
+  display: flex; /*Esto es flexbox*/
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -144,9 +165,89 @@ h3 {
 .content-hero p {
   color: var(--blanco);
 }
-.servicios {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /** Sintaxis Larga*/
-  grid: none / 1fr 1fr 1fr; /** Sintaxis corta*/
-  /**? El # de fr define el tamaño de la fraccion */
+
+.content-hero p {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 700px) {
+  .servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /** Sintaxis Larga*/
+    /*grid: none / 1fr 1fr 1fr; /** Sintaxis corta*/
+    /**? El # de fr define el tamaño de la fraccion */
+    column-gap: 5rem; /*Separaciòn en columnas*/
+  }
+}
+
+.servicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.servicio h3 {
+  color: var(--secundario);
+  font-weight: normal;
+}
+.servicio p {
+  line-height: 2;
+  text-align: center;
+}
+
+.servicio .iconos {
+  height: 15rem;
+  width: 15rem;
+  background-color: var(--primario);
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/*Contacto*/
+
+.formulario {
+  background-color: var(--gris);
+  width: min(60rem, 100%);
+  /*Utililzarelvalormaspequenoparahacerelcalculoademasahorramediaquery*/
+  margin: 0 auto;
+  /*?SoloseutilizasinoesunFLex*/
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.formulario fieldset {
+  border: none;
+}
+
+.formulario legend {
+  text-align: center;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--primario);
+}
+
+.contenedor-campo {
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  color: var(--blanco);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
 }
